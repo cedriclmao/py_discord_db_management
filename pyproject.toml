@@ -6,7 +6,7 @@ authors = [
 ]
 description = "A package used to modify & view your MySQL database data dynamically"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
