@@ -40,7 +40,7 @@ class Table:
         res = database.cursor.fetchall()
         if res:
             for row in res:
-                default_val_string = None if not row[4] else row[4].decode('utf-8')
+                default_val_string = None if not row[4] else row[4]
                 columns.append(Column(field=row[0], type=row[1], null=row[2], key=row[3], default=default_val_string, extra=row[5]))
 
         return columns
