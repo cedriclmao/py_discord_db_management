@@ -14,41 +14,34 @@ It'll return you an embed & a view for you to send back.
 ### How to get started
 1. Install the package
 ```py
-pip install dbpyman==0.1.5
+pip install -U git+https://github.com/cedriclmao/py_discord_db_management
 ```
 2. Create a new command for your discord Bot and create a `database` object inside that.
-```py
-database = Database(host='db_host',
-                    user='db_user',
-                    password='db_password',
-                    port=3306,
-                    database_name='db_name',
-                    charset='utf8mb4')
-```
 3. Call `create_db_management` and pass the `database` object as the parameter and return your **embed** & **view** 
-```py
-database = Database(host='db_host',
-                    user='db_user',
-                    password='db_password',
-                    port=3306,
-                    database_name='db_name',
-                    charset='utf8mb4')
-
-embed, view = dbpyman.create_db_management(database)
-```
 4. Use the returned embed & view and attach them to your message
 ```py
-database = Database(host='db_host',
-                    user='db_user',
-                    password='db_password',
-                    port=3306,
-                    database_name='db_name',
-                    charset='utf8mb4')
+import py_discord_db_management
+from py_discord_db_management.classes.database import Database
+from py_discord_db_management.dbpyman import create_db_management
 
-embed, view = dbpyman.create_db_management(database)
+@bot.command(hidden=True)
+@commands.is_owner()
+async def dbmanagement(ctx: commands.Context):
 
-await interaction.response.send_message(embed=embed, view=view)
+    database = Database(
+      host='db_host',
+      user='db_user',
+      password='db_password',
+      port=3306,
+      database_name='db_name',
+      charset='utf8mb4'
+    )
+
+    embed, view = create_db_management(database)
+
+    await ctx.send(embed=embed, view=view)   
 ```
+
 
 ### Advanced usage
 The framework features various methodes to further customize the UI & behavior of your data management process.
