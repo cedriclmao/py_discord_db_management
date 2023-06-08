@@ -1,4 +1,4 @@
-## Discord Mysql Management Framework [![Downloads](https://static.pepy.tech/badge/dbpyman)](https://pepy.tech/project/dbpyman)
+## Discord Mysql Management Framework 
 This package is used to dynamically **add new data** to your existing Mysql tables.<br>
 You're also able to **delete** or **view** data.<br>
 It'll return you an embed & a view for you to send back.
