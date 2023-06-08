@@ -50,15 +50,20 @@ class TableCategoryView(discord.ui.View):
 
             await interaction.response.send_modal(self.DeleteDataModal(database=self.database, table=self.table))
 
-        class DeleteDataModal(discord.ui.Modal):
+        class DeleteDataModal(Modal):
             def __init__(self, database, table):
                 super().__init__(title=f"Adding to {table.get_table_name()}")
                 self.database = database
                 self.table = table
 
-                self.add_item(discord.ui.TextInput(label=f"Primary Key", required=True))
+                self.add_item(
+                    InputText(
+                        label=f"Primary Key",
+                        required=True
+                    )
+                )
 
-            async def on_submit(self, interaction: discord.Interaction):
+            async def callback(self, interaction: discord.Interaction):
                 await interaction.response.defer()
 
                 # retrieve the data from the input
