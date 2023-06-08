@@ -1,5 +1,6 @@
 import itertools
 import discord
+from discord.ui import InputText, Modal, Select
 
 class TableAddDataView(discord.ui.View):
     def __init__(self, database, table, columns, column_index=0):
@@ -45,7 +46,7 @@ class TableAddDataView(discord.ui.View):
         async def callback(self, interaction: discord.Interaction):
             await interaction.response.send_modal(self.AddDataModal(database=self.database, table=self.table, columns=self.columns, column_index=self.column_index))
 
-        class AddDataModal(discord.ui.Modal):
+        class AddDataModal(Modal):
             def __init__(self, database, table, columns, column_index):
                 super().__init__(title=f"Adding to {table.get_table_name()}")
                 self.database = database
@@ -62,7 +63,13 @@ class TableAddDataView(discord.ui.View):
                 for index, column in itertools.islice(enumerate(self.columns[self.column_index:], start=self.column_index), 5):
                     # increase counter
                     column_counter += 1
-                    self.add_item(discord.ui.TextInput(label=f"{column.get_field()}", required=not column.get_nullable(), placeholder=str(column.get_default()) ))
+                    self.add_item(
+                        InputText(
+                            label=f"{column.get_field()}",
+                            required=not column.get_nullable(),
+                            placeholder=str(column.get_default())
+                        )
+                    )
 
                 self.column_index = column_counter
 
