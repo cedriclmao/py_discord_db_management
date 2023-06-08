@@ -16,7 +16,7 @@ It'll return you an embed & a view for you to send back.
 ```py
 pip install -U git+https://github.com/cedriclmao/py_discord_db_management
 ```
-2. Create a new command for your discord Bot and create a `database` object inside that.
+2. Create a new command for your discord Bot and create a `database` object inside that. Make sure to fill out your own credentials.
 3. Call `create_db_management` and pass the `database` object as the parameter and return your **embed** & **view** 
 4. Use the returned embed & view and attach them to your message
 ```py
@@ -24,8 +24,8 @@ import py_discord_db_management
 from py_discord_db_management.classes.database import Database
 from py_discord_db_management.dbpyman import create_db_management
 
-@bot.command(hidden=True)
-@commands.is_owner()
+@bot.command()
+@commands.is_owner() # making only the owner able to use the command
 async def dbmanagement(ctx: commands.Context):
 
     database = Database(
