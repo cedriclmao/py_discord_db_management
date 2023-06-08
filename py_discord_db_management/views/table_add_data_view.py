@@ -73,7 +73,7 @@ class TableAddDataView(discord.ui.View):
 
                 self.column_index = column_counter
 
-            async def on_submit(self, interaction: discord.Interaction):
+            async def callback(self, interaction: discord.Interaction):
                 await interaction.response.defer()
 
                 # retrieve the data from each input
