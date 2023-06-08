@@ -3,7 +3,7 @@ This package is used to dynamically **add new data** to your existing Mysql tabl
 You're also able to **delete** or **view** data.<br>
 It'll return you an embed & a view for you to send back.
 
-**TODO: MAKE IT WORKING WITH PYCORD**
+**TODO: MAKE IT FULLY WORKING WITH PYCORD**
 
 ### Built With
 [![Python][python]][python-url]
