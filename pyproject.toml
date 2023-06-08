@@ -1,10 +1,11 @@
 [project]
 name = "dbpyman"
-version = "0.1.5"
+version = "0.1.6"
 authors = [
   { name="JanikCodes", email="janiksielaff@gmx.de" },
+  { name="Quikz#4385"},
 ]
-description = "A package used to modify & view your MySQL database data dynamically"
+description = "A package used to modify & view your MySQL database data dynamically modified by Quikz#4385"
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
